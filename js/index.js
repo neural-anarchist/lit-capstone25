@@ -39,6 +39,8 @@ Reveal.initialize = options => {
 
 }
 
+
+
 /**
  * The pre 4.0 API let you add event listener before
  * initializing. We maintain the same behavior by

@@ -7,6 +7,7 @@
  */
 @import url(./fonts/league-gothic/league-gothic.css);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap");
 section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
   color: #222;
 }
@@ -365,4 +366,500 @@ section.has-light-background, section.has-light-background h1, section.has-light
   .backgrounds {
     background-color: var(--r-background-color);
   }
+}
+.title-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  font-family: "Merriweather", serif;
+  color: #f5f5f5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Full-size background image with blur */
+.title-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://wallpapers.com/images/high/slideshow-background-xik09kl134qxgopx.webp"); /* Replace with your image */
+  background-size: cover; /* Fill slide entirely */
+  background-position: center; /* Keep centered */
+  background-repeat: no-repeat;
+  filter: blur(4px); /* Subtle blur */
+  transform: scale(1.05); /* Prevent blur edge gaps */
+  z-index: 0;
+  opacity: 0.6; /* Let text pop more */
+}
+
+/* Optional dark overlay for better contrast */
+.title-slide::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark veil */
+  z-index: 1;
+}
+
+/* Content stays sharp above everything */
+.title-slide > * {
+  position: relative;
+  z-index: 2;
+}
+
+.title-slide h1 {
+  font-size: 5rem;
+  margin: 0 0 0.3em 0;
+  color: #43d5d5;
+  line-height: 1.1;
+}
+
+.title-slide h2 {
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #dddddd;
+  margin: 0;
+}
+
+.title-slide p {
+  margin-top: 2em;
+  font-size: 1.4rem;
+  color: #cccccc;
+}
+
+.thesis-slide {
+  position: relative;
+  font-family: "Merriweather", serif;
+  text-align: center;
+  width: 960px;
+  height: 700px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(20, 20, 20, 0.9)), url("https://miro.medium.com/v2/resize:fit:2000/format:webp/0*ArZ4EG7QDfhOoBi4"); /* your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* Text elements are layered above */
+.thesis-slide h2,
+.thesis-slide p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+/* Heading style */
+.thesis-slide h2 {
+  font-size: 2.8rem;
+  color: #ffdd57;
+  margin-bottom: 0.5em;
+}
+
+/* Paragraph style */
+.thesis-slide p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fdfdfd;
+}
+
+/* If image tag still exists, hide it */
+.thesis-image {
+  display: none;
+}
+
+.nav-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  box-sizing: border-box;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
+  font-family: "Merriweather", serif;
+  text-align: left;
+  background: radial-gradient(circle at center, rgb(28, 30, 32), rgb(85, 90, 95));
+}
+
+/* Slide heading */
+.nav-slide h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1em;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Each navigation row */
+.nav-item {
+  display: flex;
+  align-items: center;
+  margin: 0.8em 0;
+}
+
+/* Glowing arrow icons */
+.nav-item .icon {
+  font-size: 3rem;
+  margin-right: 0.6em;
+  color: #22cef0;
+  text-shadow: 0 0 8px #22cef0, 0 0 16px #22cef0, 0 0 24px #ffea00;
+}
+
+/* Description text */
+.nav-item .desc {
+  font-size: 1.4rem;
+  color: #f5f5f5;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Global slide sizing */
+.reveal .slides section > section {
+  width: 960px;
+  height: 700px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.source1-title-slide {
+  position: relative;
+  font-family: "Merriweather", serif;
+  color: #f5f5f5;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.source1-title-slide .hair-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px);
+  transform: scale(1.05);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.source1-summary-slide,
+.source1-analysis-slide,
+.source1-hook-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  box-sizing: border-box;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Merriweather", serif;
+  color: #ffffff;
+  text-align: center;
+  background: radial-gradient(circle at top left, #2e2e38, #1c1c1f);
+  overflow: hidden;
+}
+
+.source1-summary-slide::before,
+.source1-analysis-slide::before,
+.source1-hook-slide::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.15), transparent 60%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.source1-summary-slide h2,
+.source1-analysis-slide h2,
+.source1-hook-slide h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffdd57;
+  margin-bottom: 0.8em;
+  text-shadow: 0 0 12px rgba(255, 221, 87, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.source1-summary-slide p,
+.source1-analysis-slide p,
+.source1-hook-slide p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.8;
+  max-width: 850px;
+  color: #e6e6e6;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  left: 25px;
+}
+
+.source2-title-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  background: radial-gradient(ellipse at bottom, #0a0a0a 0%, #1c1c1c 80%);
+  overflow: hidden;
+  color: #f5f5f5;
+  font-family: "Merriweather", serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.source2-title-slide h1 {
+  font-size: 4rem;
+  color: #ffcc66;
+  z-index: 2;
+}
+
+.source2-title-slide h2 {
+  font-size: 2rem;
+  color: #dddddd;
+  z-index: 2;
+}
+
+.source2-title-slide p {
+  font-size: 1.2rem;
+  color: #cccccc;
+  z-index: 2;
+}
+
+.source2-title-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: white; /* or your theme color */
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.lotf-image-container {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.lotf-image {
+  width: 40%; /* optional */
+  height: auto;
+}
+
+.torch-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem; /* space between torches */
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.torch {
+  position: absolute;
+  width: 40px;
+  height: 120px;
+  background: linear-gradient(to top, #442200, #ff6600);
+  border-radius: 20px 20px 5px 5px;
+  box-shadow: 0 0 30px 10px #ff9933;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.torch::after {
+  content: attr(data-quote);
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffcc66;
+  font-size: 0.9rem;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: normal;
+  text-align: left;
+}
+
+.torch:hover::after {
+  opacity: 1;
+}
+
+.torch1 {
+  left: 20%;
+  top: 70%;
+}
+
+.torch2 {
+  left: 50%;
+  top: 75%;
+}
+
+.torch3 {
+  left: 80%;
+  top: 70%;
+}
+
+@keyframes dreamyJungleFireBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.lotf-summary-slide,
+.lotf-analysis-slide,
+.lotf-hook-slide {
+  background: linear-gradient(-45deg, #a3c4a9, #c8d5b9, #f7c8a6, #fbd5b5, #ffe3c5);
+  background-size: 400% 400%;
+  animation: dreamyJungleFireBG 25s ease infinite;
+  color: #5a4d3c; /* muted dark brown for text */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6); /* subtle light glow */
+}
+
+.lotf-summary-slide h2,
+.lotf-analysis-slide h2,
+.lotf-hook-slide h2 {
+  color: #d87c4a; /* warm burnt orange but lighter */
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.7);
+}
+
+.lotf-summary-slide p,
+.lotf-analysis-slide p,
+.lotf-hook-slide p {
+  color: #6e5849; /* soft mocha brown */
+}
+
+.source3-title-slide {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slideshow {
+  position: fixed; /* instead of absolute */
+  top: 0;
+  right: 300px;
+  width: 100vw; /* full viewport width */
+  height: 100vh; /* full viewport height */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slideshow .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slideshow .slide.active {
+  opacity: 1;
+}
+
+.source3-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.source3-title-slide h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.source3-title-slide h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+
+.source3-title-slide p {
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Import a fancy Renaissance-style font */
+.renaissance-bg {
+  background: linear-gradient(-45deg, #d6c9b2, #b98b5e, #8a7e6f, #f3e0c8);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #2d1f0c;
+}
+
+.fancy-font {
+  font-family: "Playfair Display", serif;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* Optional: Enhance text readability on the dreamy gradient */
+.renaissance-bg h2,
+.renaissance-bg p {
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
 }

@@ -313,7 +313,7 @@ $controlsArrowAngleActive: 36deg;
 		visibility: hidden;
 		opacity: 0;
 
-		-webkit-appearance: none;
+		
 		-webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
 	}
 
@@ -2187,4 +2187,3 @@ $notesWidthPercent: 25%;
 
 @import 'print/pdf.scss';
 @import 'print/paper.scss';
-

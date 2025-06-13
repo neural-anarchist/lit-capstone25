@@ -8,8 +8,9 @@
 
 
 // Default mixins and settings -----------------
-@import "../template/mixins";
-@import "../template/settings";
+@use "../template/mixins" as mixins;
+@use "../template/settings" as settings;
+@use "../template/theme" as theme;
 // ---------------------------------------------
 
 
@@ -28,12 +29,14 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 }
 
 // Change text colors against light slide backgrounds
-@include light-bg-text-color(#222);
+@include mixins.light-bg-text-color(#222); // Add namespace
 
 
 // Theme template ------------------------------
-@import "../template/theme";
+
 // ---------------------------------------------
+
+
 
 
 .title-slide {
@@ -212,6 +215,9 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
   color: #f5f5f5;
   text-shadow: 0 0 6px rgba(0,0,0,0.7);
 }
+
+
+
 
 
 /* Global slide sizing */
@@ -547,4 +553,496 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 .renaissance-bg h2,
 .renaissance-bg p {
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+
+/* General layout */
+.wywh-title-slide {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-family: 'Merriweather', serif;
+  background-image: url("source/assets/wywh.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.wywh-title-slide h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.wywh-title-slide h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Audio player wrapper */
+.audio-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.audio-container audio {
+  display: none;
+}
+
+.audio-player {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s ease;
+}
+
+.audio-player:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.audio-player button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.progress-container {
+  width: 900px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.audio-player:hover .progress-container {
+  opacity: 1;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: #ffc107;
+  transition: width 0.1s linear;
+}
+
+.audio-description {
+  font-size: 0.9rem;
+  max-width: 300px;
+  text-align: left;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 3px black;
+}
+
+.summary-slide,
+.analysis-slide,
+.hook-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  box-sizing: border-box;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather', serif;
+  color: #ffffff;
+  text-align: center;
+    background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.447), rgba(20, 20, 20, 0.608)), /* overlay gradient */
+    url('/assets/wywh.png'); /* your image */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 60px;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+
+/* Optional subtle light radial glow like source1 */
+.summary-slide::before,
+.analysis-slide::before,
+.hook-slide::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  z-index: 0;
+}
+
+/* Headings */
+.summary-slide h2,
+.analysis-slide h2,
+.hook-slide h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffdd57;
+  margin-bottom: 0.8em;
+  text-shadow: 0 0 12px rgba(255, 221, 87, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Paragraph text */
+.summary-slide p,
+.analysis-slide p,
+.hook-slide p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.8;
+  max-width: 850px;
+  color: #e6e6e6;
+  padding: 20px 30px;
+  position: relative;
+  z-index: 2;
+  /* Remove any left offset to keep text truly centered */
+  left: 0;
+  text-align: center;
+
+}
+
+
+.source5-title-slide {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.slideshow2 {
+  position: fixed; /* instead of absolute */
+  top: 0;
+  right: 300px;
+  width: 100vw;    /* full viewport width */
+  height: 100vh;   /* full viewport height */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.slideshow2 .slide2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slideshow2 .slide2.active2 {
+  opacity: 1;
+}
+
+.source5-overlay {
+  position: relative;
+  z-index: 1;
+}
+
+.source5-title-slide h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+}
+
+.source5-title-slide h2 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  font-weight: 400;
+}
+
+.source5-title-slide p {
+  font-size: 1em;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+
+
+.romeo-summary-slide,
+.romeo-analysis-slide,
+.romeo-hook-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  padding: 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Merriweather', serif;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #f7bad9, #fb7ea7);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Optional soft glow */
+.romeo-summary-slide::before,
+.romeo-analysis-slide::before,
+.romeo-hook-slide::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.romeo-summary-slide h2,
+.romeo-analysis-slide h2,
+.romeo-hook-slide h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #f36e9a;
+  margin-bottom: 0.8em;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.romeo-summary-slide p,
+.romeo-analysis-slide p,
+.romeo-hook-slide p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.8;
+  max-width: 850px;
+  color: #ead0d9;
+  background: rgba(236, 37, 37, 0.515);
+  padding: 20px 30px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(123, 118, 118, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* === SOURCE 6 TITLE SLIDE === */
+.source6-title-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  text-align: center;
+  font-family: 'Merriweather', serif;
+}
+
+.title-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+  left: 29px;
+}
+
+.source6-overlay {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.source6-title-slide h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.source6-title-slide h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.source6-title-slide p {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+/* === COMMON STYLES FOR CONTENT SLIDES === */
+.source6-summary-slide,
+.source6-analysis-slide,
+.source6-hook-slide {
+  position: relative;
+  width: 960px;
+  height: 700px;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: 'Merriweather', serif;
+  text-align: center;
+  color: #ffffff;
+  background: radial-gradient(circle at top left, #4b4ca3, #2d274e);
+  overflow: hidden;
+}
+
+/* Optional glowing highlight */
+.source6-summary-slide::before,
+.source6-analysis-slide::before,
+.source6-hook-slide::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(153, 102, 255, 0.15), transparent 60%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+/* Headings */
+.source6-summary-slide h2,
+.source6-analysis-slide h2,
+.source6-hook-slide h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #ffd966;
+  margin-bottom: 1em;
+  text-shadow: 0 0 12px rgba(255, 221, 87, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+/* Paragraphs */
+.source6-summary-slide p,
+.source6-analysis-slide p,
+.source6-hook-slide p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  line-height: 1.8;
+  max-width: 850px;
+  padding: 20px 30px;
+  color: #eaeaea;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  left: 29px;
+}
+
+
+.final-slide {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.final-content {
+  z-index: 2;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.final-slide h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #ffdd88;
+  text-shadow: 0 0 20px rgba(255, 221, 136, 0.3);
+  margin-bottom: 0.4em;
+}
+
+.thanks-sub {
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 5em; /* pushes the link lower */
+  color: #dddddd;
+  font-family: 'Inter', sans-serif;
+}
+
+.bibliography-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 2px solid #ffffff44;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease-in-out;
+  margin-top: 2rem; /* additional spacing for safety */
+}
+
+.bibliography-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffffaa;
+}
+
+
+.reveal {
+
+  
+  h1 { font-size: 3.5rem !important; }
+  h2 { font-size: 2.5rem !important; }
+  h3 { font-size: 1.8rem !important; }
+  p  { font-size: 1.5rem !important; }
+
 }

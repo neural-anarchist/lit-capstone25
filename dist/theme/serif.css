@@ -12,41 +12,22 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff;
 }
 
-/*********************************************
- * GLOBAL STYLES
- *********************************************/
-:root {
-  --r-background-color: #F0F1EB;
-  --r-main-font: Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif;
-  --r-main-font-size: 40px;
-  --r-main-color: #000;
-  --r-block-margin: 20px;
-  --r-heading-margin: 0 0 20px 0;
-  --r-heading-font: Palatino Linotype, Book Antiqua, Palatino, FreeSerif, serif;
-  --r-heading-color: #383D3D;
-  --r-heading-line-height: 1.2;
-  --r-heading-letter-spacing: normal;
-  --r-heading-text-transform: none;
-  --r-heading-text-shadow: none;
-  --r-heading-font-weight: normal;
-  --r-heading1-text-shadow: none;
-  --r-heading1-size: 3.77em;
-  --r-heading2-size: 2.11em;
-  --r-heading3-size: 1.55em;
-  --r-heading4-size: 1em;
-  --r-code-font: monospace;
-  --r-link-color: #51483D;
-  --r-link-color-dark: rgb(68.85, 61.2, 51.85);
-  --r-link-color-hover: rgb(122.9830985915, 109.3183098592, 92.6169014085);
-  --r-selection-background-color: #26351C;
-  --r-selection-color: #fff;
-  --r-overlay-element-bg-color: 0, 0, 0;
-  --r-overlay-element-fg-color: 240, 240, 240;
+.reveal-viewport {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/img/your-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--r-background-color);
 }
 
-.reveal-viewport {
-  background: #F0F1EB;
-  background-color: var(--r-background-color);
+.reveal .slides {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+.reveal .slides section {
+  margin: auto !important;
 }
 
 .reveal {
@@ -56,12 +37,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: var(--r-main-color);
 }
 
-.reveal ::selection {
-  color: var(--r-selection-color);
-  background: var(--r-selection-background-color);
-  text-shadow: none;
-}
-
+.reveal ::selection,
 .reveal ::-moz-selection {
   color: var(--r-selection-color);
   background: var(--r-selection-background-color);
@@ -74,9 +50,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-weight: inherit;
 }
 
-/*********************************************
- * HEADERS
- *********************************************/
+/* Headers */
 .reveal h1,
 .reveal h2,
 .reveal h3,
@@ -96,6 +70,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal h1 {
   font-size: var(--r-heading1-size);
+  text-shadow: var(--r-heading1-text-shadow);
 }
 
 .reveal h2 {
@@ -110,19 +85,12 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-size: var(--r-heading4-size);
 }
 
-.reveal h1 {
-  text-shadow: var(--r-heading1-text-shadow);
-}
-
-/*********************************************
- * OTHER
- *********************************************/
+/* Paragraphs */
 .reveal p {
   margin: var(--r-block-margin) 0;
   line-height: 1.3;
 }
 
-/* Remove trailing margins after titles */
 .reveal h1:last-child,
 .reveal h2:last-child,
 .reveal h3:last-child,
@@ -132,14 +100,16 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   margin-bottom: 0;
 }
 
-/* Ensure certain elements are never larger than the slide itself */
+/* Media elements */
 .reveal img,
 .reveal video,
 .reveal iframe {
   max-width: 95%;
   max-height: 95%;
+  margin: var(--r-block-margin) 0;
 }
 
+/* Text styles */
 .reveal strong,
 .reveal b {
   font-weight: bold;
@@ -149,6 +119,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-style: italic;
 }
 
+/* Lists */
 .reveal ol,
 .reveal dl,
 .reveal ul {
@@ -189,6 +160,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   margin-left: 40px;
 }
 
+/* Blockquotes */
 .reveal blockquote {
   display: block;
   position: relative;
@@ -209,6 +181,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   font-style: italic;
 }
 
+/* Code */
 .reveal pre {
   display: block;
   position: relative;
@@ -222,18 +195,18 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-.reveal code {
-  font-family: var(--r-code-font);
-  text-transform: none;
-  tab-size: 2;
-}
-
 .reveal pre code {
   display: block;
   padding: 5px;
   overflow: auto;
   max-height: 400px;
   word-wrap: normal;
+}
+
+.reveal code {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
 }
 
 .reveal .code-wrapper {
@@ -244,6 +217,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   white-space: pre;
 }
 
+/* Tables */
 .reveal table {
   margin: auto;
   border-collapse: collapse;
@@ -257,7 +231,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal table th,
 .reveal table td {
   text-align: left;
-  padding: 0.2em 0.5em 0.2em 0.5em;
+  padding: 0.2em 0.5em;
   border-bottom: 1px solid;
 }
 
@@ -276,6 +250,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   border-bottom: none;
 }
 
+/* Sup/Sub/Small */
 .reveal sup {
   vertical-align: super;
   font-size: smaller;
@@ -297,13 +272,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   vertical-align: top;
 }
 
-.reveal img {
-  margin: var(--r-block-margin) 0;
-}
-
-/*********************************************
- * LINKS
- *********************************************/
+/* Links */
 .reveal a {
   color: var(--r-link-color);
   text-decoration: none;
@@ -321,9 +290,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   background: var(--r-link-color-dark);
 }
 
-/*********************************************
- * Frame helper
- *********************************************/
+/* Frames */
 .reveal .r-frame {
   border: 4px solid var(--r-main-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -338,24 +305,18 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
-/*********************************************
- * NAVIGATION CONTROLS
- *********************************************/
+/* Navigation */
 .reveal .controls {
   color: var(--r-link-color);
 }
 
-/*********************************************
- * PROGRESS BAR
- *********************************************/
+/* Progress */
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
   color: var(--r-link-color);
 }
 
-/*********************************************
- * PRINT BACKGROUND
- *********************************************/
+/* Print */
 @media print {
   .backgrounds {
     background-color: var(--r-background-color);

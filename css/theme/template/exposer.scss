@@ -1,32 +1,72 @@
-// Exposes theme's variables for easy reuse in CSS for plugin authors
-
 @use "sass:color";
 
-:root {
-  --r-background-color: #{$backgroundColor};
-  --r-main-font: #{$mainFont};
-  --r-main-font-size: #{$mainFontSize};
-  --r-main-color: #{$mainColor};
-  --r-block-margin: #{$blockMargin};
-  --r-heading-margin: #{$headingMargin};
-  --r-heading-font: #{$headingFont};
-  --r-heading-color: #{$headingColor};
-  --r-heading-line-height: #{$headingLineHeight};
-  --r-heading-letter-spacing: #{$headingLetterSpacing};
-  --r-heading-text-transform: #{$headingTextTransform};
-  --r-heading-text-shadow: #{$headingTextShadow};
-  --r-heading-font-weight: #{$headingFontWeight};
-  --r-heading1-text-shadow: #{$heading1TextShadow};
-  --r-heading1-size: #{$heading1Size};
-  --r-heading2-size: #{$heading2Size};
-  --r-heading3-size: #{$heading3Size};
-  --r-heading4-size: #{$heading4Size};
-  --r-code-font: #{$codeFont};
-  --r-link-color: #{$linkColor};
-  --r-link-color-dark: #{color.scale( $linkColor, $lightness: -15% )};
-  --r-link-color-hover: #{$linkColorHover};
-  --r-selection-background-color: #{$selectionBackgroundColor};
-  --r-selection-color: #{$selectionColor};
-  --r-overlay-element-bg-color: #{$overlayElementBgColor};
-  --r-overlay-element-fg-color: #{$overlayElementFgColor};
+// ---------------------------------------------------
+// DEFINE DEFAULT THEME VARIABLES
+// ---------------------------------------------------
+$backgroundColor: #111 !default;
+$mainFont: 'Source Sans Pro', sans-serif !default;
+$mainFontSize: 40px !default;
+$mainColor: #fff !default;
+$blockMargin: 20px !default;
+$headingMargin: 0 0 20px 0 !default;
+$headingFont: 'Source Sans Pro', sans-serif !default;
+$headingColor: #fff !default;
+$headingLineHeight: 1.2 !default;
+$headingLetterSpacing: normal !default;
+$headingTextTransform: none !default;
+$headingTextShadow: none !default;
+$headingFontWeight: 600 !default;
+$heading1TextShadow: none !default;
+$heading1Size: 2.5em !default;
+$heading2Size: 2.0em !default;
+$heading3Size: 1.6em !default;
+$heading4Size: 1.2em !default;
+$codeFont: monospace !default;
+$linkColor: #42affa !default;
+$linkColorHover: color.adjust($linkColor, $lightness: 10%) !default;
+$selectionBackgroundColor: #444 !default;
+$selectionColor: #fff !default;
+$overlayElementBgColor: rgba(0, 0, 0, 0.8) !default;
+$overlayElementFgColor: #fff !default;
+
+// ---------------------------------------------------
+// MIXIN TO INJECT CSS VARIABLES INTO :root
+// ---------------------------------------------------
+@mixin exposeThemeVariables() {
+  :root {
+    --r-background-color: #{$backgroundColor};
+    --r-main-font: #{$mainFont};
+    --r-main-font-size: #{$mainFontSize};
+    --r-main-color: #{$mainColor};
+    --r-block-margin: #{$blockMargin};
+    --r-heading-margin: #{$headingMargin};
+    --r-heading-font: #{$headingFont};
+    --r-heading-color: #{$headingColor};
+    --r-heading-line-height: #{$headingLineHeight};
+    --r-heading-letter-spacing: #{$headingLetterSpacing};
+    --r-heading-text-transform: #{$headingTextTransform};
+    --r-heading-text-shadow: #{$headingTextShadow};
+    --r-heading-font-weight: #{$headingFontWeight};
+    --r-heading1-text-shadow: #{$heading1TextShadow};
+    --r-heading1-size: #{$heading1Size};
+    --r-heading2-size: #{$heading2Size};
+    --r-heading3-size: #{$heading3Size};
+    --r-heading4-size: #{$heading4Size};
+    --r-code-font: #{$codeFont};
+    --r-link-color: #{$linkColor};
+    --r-link-color-dark: #{color.scale($linkColor, $lightness: -15%)};
+    --r-link-color-hover: #{$linkColorHover};
+    --r-selection-background-color: #{$selectionBackgroundColor};
+    --r-selection-color: #{$selectionColor};
+    --r-overlay-element-bg-color: #{$overlayElementBgColor};
+    --r-overlay-element-fg-color: #{$overlayElementFgColor};
+  }
+}
+
+@mixin bodyBackground() {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/assets/img/your-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

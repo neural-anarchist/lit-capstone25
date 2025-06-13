@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<title>Why We Tell Stories – Capstone by Gary Shen</title>
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,14 +10,14 @@
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/league.css">
-		<link rel="stylesheet" href="custom.css">
+		
 
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
+	<link rel="icon" type="image/png" href="assets/favicon.png">
 	<body>
 		<div class="reveal">
 			<div class="slides">
@@ -43,7 +44,7 @@
 				</section>
 
 			<section class="nav-slide">
-			<h2><br><br>Navigation Guide</h2>
+			<h2><br>Navigation Guide</h2>
 			<div class="nav-item">
 				<span class="icon">▲</span>
 				<span class="desc">Up – Go to previous section of the source</span>
@@ -54,8 +55,13 @@
 			</div>
 			<div class="nav-item">
 				<span class="icon">▼</span>
-				<span class="desc">Down – Go to next section of the source</span>
+				<span class="desc">Down – Go to next section of the source	</span>
 			</div>
+			<div class="nav-item">
+				<span class="icon">ESC</span>
+				<span class="desc">Press "esc" to switch to full view</span>
+			</div>
+			
 			</section>
 
 			<section>
@@ -101,16 +107,9 @@
 				<h2>By William Golding</h2>
 				<p><b>Stuttgart, Klett, 2007</b></p>
 				<p>Check out quotes (place mouse on the torches)!</p>
-
-				<!-- Insert the image here -->
 				<section class="lotf-image-container">
 					<img src="https://media.newyorker.com/photos/59b05ab50a52a80d35bc8208/16:9/w_4775,h_2686,c_limit/Konc-All-Girl-Remake-of-Lord-of-the-Flies.jpg" alt="Lord of the Flies Cover" class="lotf-image" />
-				</section>
-
-
-				
-
-				<div
+					<div
 					class="torch torch1"
 					data-quote="Things are breaking up. I don’t understand why. We began well; we were happy. - Ralph"
 				></div>
@@ -122,8 +121,8 @@
 					class="torch torch3"
 					data-quote="What are we? Humans? Or animals? Or savages? What's grownups going to think? - Piggy"
 				></div>
+				</section>
 			</section>
-
 			<section class="lotf-summary-slide">
 			<h2>Summary</h2>
 			<p>
@@ -136,7 +135,6 @@
 				Golding probes the dark underbelly of human nature, suggesting that fear and distrust can unravel even the most innocent societies. The boys’ initial cooperation crumbles as fear amplifies their selfish instincts, leading to a violent breakdown of trust. Jack’s rise reflects how the absence of mutual reliance fosters chaos and destruction. Written in the shadow of World War II, the novel warns of the catastrophic consequences of abandoning trust.
 			</p>
 			</section>
-
 			<section class="lotf-hook-slide">
 			<h2>Hooking Back to the Thesis</h2>
 			<p>
@@ -144,7 +142,9 @@
 			</p>
 			</section>
 			</section>
+		
 			
+		
 			<section>
 				<section class="source3-title-slide">
 				<div class="slideshow">
@@ -200,6 +200,213 @@
 				and hopelessness of their world. Their story proves that trust in relationships can triumph over even the direst hardships.
 				</p>
 			</section>
+			</section>
+
+
+		<section>
+			<section class="source4-title-slide">
+				<div class="title-content">
+					
+				<h1><br><br>Wish You Were Here</h1>
+				<h2>By Pink Floyd, Columbia Records, 1975</h2>
+				<p><strong>Spotify · Accessed 6 June 2025</strong></p>
+
+				<div class="audio-section">
+					<p><em>Below is my own recording of the title track — a tribute that echoes the emotional weight of the original.</em></p>
+					<div class="audio-player" id="audioPlayer">
+					<audio id="audio" src="assets/wywh.mp3"></audio>
+					<button id="playPause">▶</button>
+					<div class="progress-container" id="progressContainer">
+						<div class="progress" id="progress"></div>
+					</div>
+					</div>
+				</div>
+				<p id="timestamp">0:00 / 4:26</p>
+				</div>
+				
+			</section>
+			<section class="summary-slide">
+			<h2>Summary</h2>
+			<p>
+				Wish You Were Here is Pink Floyd’s tribute to Syd Barrett, their former bandmate lost to mental health struggles, blending grief with a critique of societal disconnection. “Shine on You Crazy Diamond” mourns Barrett’s brilliance and the band’s shift after his exit, while the title track laments lost authenticity in a commercialized world. The album ties Barrett’s decline to broader themes of war and industry betrayal. It resonates as both a personal elegy and a societal lament.
+			</p>
+			</section>
+
+			<section class="analysis-slide">
+			<h2>Analysis</h2>
+			
+			<p>
+				The album explores the anguish of broken relationships and the yearning for genuine connection, rooted in Barrett’s tragic absence. It critiques how societal pressures—like commercialization—erode trust and well-being, mirroring Barrett’s fate. The longing for Barrett reflects a deeper desire for authentic bonds in a fractured world. Wish You Were Here ultimately suggests that trust is crucial for emotional survival.
+			</p>
+			</section>
+
+			<section class="hook-slide">
+			<h2>Hooking Back to the Thesis</h2>
+			<p>
+				Wish You Were Here bolsters the thesis by revealing how the loss of trust deepens human suffering, while the longing for connection highlights its necessity. Pink Floyd’s elegy shows that mutual trust is a vital shield against hardship’s isolating sting.
+			</p>
+			</section>
+		</section>
+
+
+			
+
+			<script>
+			const audio = document.getElementById('audio');
+			const playPause = document.getElementById('playPause');
+			const progressContainer = document.getElementById('progressContainer');
+			const progress = document.getElementById('progress');
+
+			let playing = false;
+
+			playPause.addEventListener('click', () => {
+				if (playing) {
+				audio.pause();
+				playPause.textContent = '▶';
+				} else {
+				audio.play();
+				playPause.textContent = '⏸';
+				}
+				playing = !playing;
+			});
+
+			audio.addEventListener('ended', () => {
+				playPause.textContent = '▶';
+				playing = false;
+			});
+
+			audio.addEventListener('timeupdate', () => {
+				const percent = (audio.currentTime / audio.duration) * 100;
+				progress.style.width = percent + '%';
+			});
+
+			// Allow user to seek
+			progressContainer.addEventListener('click', (e) => {
+				const width = progressContainer.clientWidth;
+				const clickX = e.offsetX;
+				const duration = audio.duration;
+				audio.currentTime = (clickX / width) * duration;
+			});
+
+			const timestamp = document.getElementById('timestamp');
+			audio.addEventListener('timeupdate', () => {
+			const current = formatTime(audio.currentTime);
+			const total = formatTime(audio.duration);
+			progress.style.width = (audio.currentTime / audio.duration) * 100 + '%';
+			timestamp.textContent = `${current} / ${total}`;
+			});
+
+			function formatTime(seconds) {
+			if (isNaN(seconds)) return '0:00';
+			const mins = Math.floor(seconds / 60);
+			const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+			return `${mins}:${secs}`;
+			}
+			</script>
+
+
+
+
+			<section>
+			<section class="source5-title-slide">
+			<!-- Background Slideshow -->
+			<div class="slideshow2">
+					<img src="assets/rj1.jpg" class="slide2 active2">
+					<img src="assets/rj2.jpg" class="slide2">
+					<img src="assets/rj3.jpg" class="slide2">
+					<img src="assets/rj4.jpg" class="slide2">
+				</div>
+
+			<!-- Overlayed Text -->
+			<div class="source5-overlay">
+				<h1><br>The Tragedy of Romeo and Juliet</h1>
+				<h2>By William Shakespeare, et al., New York City, Washington Square Press new Folger’s ed., 1992</h2>
+				
+			</div>
+			</section>
+
+			<script>
+			const slides2 = document.querySelectorAll('.slideshow2 .slide2');
+			let currentSlide = 0;
+
+			setInterval(() => {
+				slides2[currentSlide].classList.remove('active2');
+				currentSlide = (currentSlide + 1) % slides2.length;
+				slides2[currentSlide].classList.add('active2');
+			}, 3000); 
+			</script>
+
+			<section class="romeo-summary-slide">
+			<h2><br><br>Summary</h2>
+			<p>
+				The Tragedy of Romeo and Juliet tells of two young lovers from feuding families in Verona who secretly marry to unite their hearts. Romeo’s exile follows his killing of Juliet’s cousin Tybalt, and a miscommunication leads Juliet to fake her death, only for Romeo to take his life beside her. Juliet awakens to find him dead and follows suit, their suicides ultimately reconciling their families. The play weaves love and tragedy into a timeless cautionary tale.
+			</p>
+			</section>
+
+			<section class="romeo-analysis-slide">
+			<h2><br><br>Analysis</h2>
+			<p>
+				Shakespeare examines the clash between fate and free will, critiquing the destructive power of familial distrust and hate. Romeo and Juliet’s mutual trust and love shine as a beacon of hope, offering resilience against their hostile world. Their bond fosters courage and joy, though it cannot fully escape the tragic consequences of external conflict. The play champions trust as a force for transformation amid adversity.
+			</p>
+			</section>
+
+			<section class="romeo-hook-slide">
+			<h2><br><br>Hooking Back to the Thesis</h2>
+			<p>
+				Romeo and Juliet aligns with the thesis by demonstrating how the lovers’ trust fortifies them against a world of strife, proving its redemptive power. Their story affirms that mutual trust can inspire resilience, even when hardship prevails.
+			</p>
+			</section>
+			</section>
+
+
+
+			<section>
+				<!-- SOURCE 6 TITLE SLIDE -->
+				<section class="source6-title-slide">
+				<img src="data:image/jpeg;base64,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" alt="Background image" class="title-bg" />
+				<div class="source6-overlay">
+					<h1>“How Distrust Harms Society”</h1>
+					<h2>By Isabel Thielmann and Anna Schaich, Max-Planck-Gesellschaft, 2023</h2>
+					<p><strong>Summary · Analysis · Hook</strong></p>
+				</div>
+				</section>
+
+				<!-- SUMMARY SLIDE -->
+				<section class="source6-summary-slide">
+				<h2><br><br>Summary</h2>
+				<p>
+					“How Distrust Harms Society” presents research from a study of 1,900 participants in the UK and Germany, linking distrust to populism and conspiracy beliefs. It finds that distrust in institutions and people, perceived as exploitative, drives societal division and regression. The study attributes these trends to human traits like selfishness and fear, intensified by pervasive suspicion. It advocates for rebuilding trust to counteract these destructive patterns.
+				</p>
+				</section>
+
+				<!-- ANALYSIS SLIDE -->
+				<section class="source6-analysis-slide">
+				<h2><br><br>Analysis</h2>
+				<p>
+					Thielmann and Schaich reveal how distrust fuels conflict and undermines social cohesion, connecting it to political extremism and division. The research highlights a vicious cycle where suspicion breeds further isolation and strife. Conversely, it posits that fostering trust can break this cycle, enhancing societal resilience. The findings emphasize distrust’s heavy toll on collective well-being.
+				</p>
+				</section>
+
+				<!-- HOOK SLIDE -->
+				<section class="source6-hook-slide">
+				<h2><br><br>Hooking Back to the Thesis</h2>
+				<p>
+					This study directly reinforces the thesis by proving that distrust amplifies human struggles, while trust can alleviate them. Its evidence underscores mutual trust as a critical bulwark against hardship’s societal and personal ravages.
+				</p>
+				</section>
+
+
+			</section>
+
+
+			<section class="final-slide">
+			<div class="final-content">
+				<h1><br><br>Thank You!</h1>
+				<p class="thanks-sub">For exploring the power of trust in storytelling</p>
+				<a class="bibliography-link" href="assets/Castone Final Bibliography 25.pdf" target="_blank">
+				View Full Bibliography ↗
+				</a>
+			</div>
 			</section>
 
 			</div>

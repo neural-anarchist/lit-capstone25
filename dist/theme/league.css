@@ -1065,6 +1065,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  left: 29px;
 }
 
 /* Optional soft glow */
@@ -1110,6 +1111,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
   box-shadow: 0 0 20px rgba(123, 118, 118, 0.2);
   position: relative;
   z-index: 2;
+  left: 29px;
 }
 
 /* === SOURCE 6 TITLE SLIDE === */
